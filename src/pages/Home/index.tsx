@@ -43,7 +43,7 @@ const Home: React.FC = () => {
             iconUrl={patientIcon}
           ></ReusableButton>
         </Link>
-        <Link to="/doctor-avaliabilty">
+        <Link to="/menu-doctor">
         <ReusableButton
           color={theme.colors.primary}
           text="Médico"

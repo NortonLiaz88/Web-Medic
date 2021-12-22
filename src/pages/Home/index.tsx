@@ -36,18 +36,20 @@ const Home: React.FC = () => {
         <Logo src={logoUrl} alt="logo"></Logo>
       </Identity>
       <Footer>
-        <Link to="/consult">
+        <Link to="/patient-consult">
           <ReusableButton
             color={theme.colors.btn_secondary}
             text="Paciente"
             iconUrl={patientIcon}
           ></ReusableButton>
         </Link>
+        <Link to="/doctor-avaliabilty">
         <ReusableButton
           color={theme.colors.primary}
           text="Médico"
           iconUrl={medicinIcon}
         ></ReusableButton>
+        </Link>
       </Footer>
     </Container>
   );

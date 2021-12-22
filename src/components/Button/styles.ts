@@ -27,5 +27,7 @@ export const Text = styled.span`
 
 
 export const IconButton = styled.img.attrs({})`
+  height: 42px;
+  width: 36px;
   margin-right: 21px;
 `;

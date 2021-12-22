@@ -5,7 +5,7 @@ export const DateContainer = styled.div`
 display: flex;
 flex-direction: column;
 flex: 3;
-margin-right: 1rem;
+
 `;
 
 export const Label = styled.label`

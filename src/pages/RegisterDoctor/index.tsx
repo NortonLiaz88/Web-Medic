@@ -41,6 +41,7 @@ const DoctorConsult: React.FC = () => {
   const [name, setName] = useState("");
   const [birthday, setBirthday] = useState(new Date());
   const [crm, setCRM] = useState("");
+  const [value, setValue] = useState("");
   const [dayRange, setDayRange] = React.useState<DayRange>({
     from: null,
     to: null,
@@ -52,11 +53,11 @@ const DoctorConsult: React.FC = () => {
     console.log(array);
     setDayRange(array);
     const initial = formatRFC3339(
-      new Date(array?.from?.year, array?.from?.month, array?.from?.day)
+      new Date(array?.from?.year, array?.from?.month -1, array?.from?.day)
     );
     if (!!array?.to) {
       const final = formatRFC3339(
-        new Date(array?.to?.year, array?.to?.month, array?.to?.day)
+        new Date(array?.to?.year, array?.to?.month -1, array?.to?.day)
       );
       setInitialDate(initial);
       setfinalDate(final);
@@ -81,7 +82,7 @@ const DoctorConsult: React.FC = () => {
         height: "56px",
         width: "100%",
         background: "#FAFAFC",
-        fontSize: '16px',
+        fontSize: "16px",
       }}
       className="my-custom-input-class" // a styling class
     />
@@ -92,7 +93,14 @@ const DoctorConsult: React.FC = () => {
   }
 
   function handleRegister(form) {
-    console.log("data");
+    const data = {
+      name: form.name,
+      birthday: form.birthday,
+      crm: form.crm,
+      value: form.value,
+      dayRange: { initialDate, finalDate },
+    };
+    console.log("data", data);
   }
 
   let handleChange = (i, e) => {
@@ -122,9 +130,14 @@ const DoctorConsult: React.FC = () => {
           <Section>
             <Title>Seus dados</Title>
             <HorizontalDivider></HorizontalDivider>
-            <InputForm control={control} label="Nome completo"></InputForm>
-            <InputForm control={control} label="CRM"></InputForm>
+            <InputForm
+              name="name"
+              control={control}
+              label="Nome completo"
+            ></InputForm>
+            <InputForm name="crm" control={control} label="CRM"></InputForm>
             <DatePickerForm
+              name="birthday"
               label="Data de nascimento"
               control={control}
               selected={birthday}
@@ -147,6 +160,8 @@ const DoctorConsult: React.FC = () => {
             {formValues.map((element, index) => (
               <SpecialityContainer key={index}>
                 <SelectForm
+                  name="speciality"
+                  control={control}
                   label="Especialidade"
                   options={options}
                   value={element.speciality || ""}
@@ -174,7 +189,7 @@ const DoctorConsult: React.FC = () => {
           <Section>
             <Title>Preço hora</Title>
             <HorizontalDivider></HorizontalDivider>
-            <InputForm control={control} label="Valor"></InputForm>
+            <InputForm name="value" control={control} label="Valor"></InputForm>
           </Section>
         </Form>
         <FormFooter buttonPress={handleSubmit(handleRegister)}></FormFooter>

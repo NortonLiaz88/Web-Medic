@@ -19,7 +19,7 @@ export const ButtonStyled = styled.button<Props>`
 export const Text = styled.span`
   font-family: Archivo;
   font-style: normal;
-  font-weight: bold;
+  font-weight: regular;
   font-size: 24px;
   color: #ffffff;
 

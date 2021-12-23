@@ -92,9 +92,10 @@ const PatientConsult: React.FC = () => {
           <Section>
             <Title>Seus dados</Title>
             <HorizontalDivider></HorizontalDivider>
-            <InputForm control={control} label="Nome completo"></InputForm>
-            <InputForm control={control} label="CPF"></InputForm>
+            <InputForm name="name" control={control} label="Nome completo"></InputForm>
+            <InputForm name="cpf" control={control} label="CPF"></InputForm>
             <DatePickerForm
+                name="birthday"
                 label='Data de nascimento'
                 control={control}
                 selected={birthday}
@@ -105,10 +106,12 @@ const PatientConsult: React.FC = () => {
           <Section>
             <Title>Escolha uma especialidade</Title>
             <HorizontalDivider></HorizontalDivider>
-            <SelectForm label="Especialidade" options={options}></SelectForm>
+            <SelectForm name="speciality" control={control} label="Especialidade" options={options}></SelectForm>
             <StyledLink to="/">Verificar perfis médicos</StyledLink>
-            <SelectForm label="Médico" options={options}></SelectForm>
+            <SelectForm name="doctor" control={control} label="Médico" options={options}></SelectForm>
             <TextAreaForm
+              name="descriptio"
+              control={control}
               label="Descrição dos sintomas"
               rows={9}
             ></TextAreaForm>
@@ -119,12 +122,13 @@ const PatientConsult: React.FC = () => {
             <HorizontalDivider></HorizontalDivider>
             <PeriodContainer>
               <DatePickerForm
+                name="date"
                 label='Dia'
                 control={control}
                 selected={date}
                 onChange={(date) => handleDateChange(date)}
               ></DatePickerForm>
-              <TimeForm></TimeForm>
+              <TimeForm name="time" control={control}></TimeForm>
             </PeriodContainer>
           </Section>
         </Form>

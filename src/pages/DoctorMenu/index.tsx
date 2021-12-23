@@ -13,12 +13,13 @@ const DoctorMenu: React.FC = () => {
   return (
     <Container>
       <Header>
+        <NavigationBack></NavigationBack>
       </Header>
       <CardMenu>
         <Title>Menu</Title>
         <MenuOptions>
           <Item to="/doctor-avaliabilty">Cadastrar dados médicos</Item>
-          <Item to="/">Minhas Consultas</Item>
+          <Item to="/my-consults-doctor">Minhas Consultas</Item>
         </MenuOptions>
       </CardMenu>
     </Container>

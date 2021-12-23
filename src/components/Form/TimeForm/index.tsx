@@ -1,4 +1,5 @@
 import React from "react";
+import { Control, Controller } from "react-hook-form";
 
 import {
   DateContainer,
@@ -7,12 +8,24 @@ import {
   TimePickerStyled,
 } from "./styles";
 
-export const TimeForm: React.FC = () => {
+interface Props {
+  control: Control;
+  name: string;
+}
+
+export const TimeForm: React.FC<Props> = ({control, name}: Props) => {
   return (
     <DateContainer>
       <Label>Hora</Label>
       <TimeInputContainer>
-        <TimePickerStyled />
+      <Controller
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <TimePickerStyled onChange={onChange} />
+          )}
+          name={name}
+        />
+        
       </TimeInputContainer>
     </DateContainer>
   );

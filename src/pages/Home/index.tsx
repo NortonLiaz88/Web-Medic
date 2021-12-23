@@ -36,7 +36,7 @@ const Home: React.FC = () => {
         <Logo src={logoUrl} alt="logo"></Logo>
       </Identity>
       <Footer>
-        <Link to="/patient-consult">
+        <Link to="/menu-patient">
           <ReusableButton
             color={theme.colors.btn_secondary}
             text="Paciente"

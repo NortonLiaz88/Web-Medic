@@ -1,4 +1,5 @@
 import React, {TextareaHTMLAttributes} from "react";
+import { Control, Controller } from "react-hook-form";
 import { 
     Container, 
     Label, 
@@ -8,15 +9,24 @@ import {
 
 interface Props extends TextareaHTMLAttributes<HTMLSelectElement> {
     label: string;
+    control: Control;
+    name: string;
   }
   
 
-export const TextAreaForm: React.FC<Props> = ({label, rows, cols, ...rest}: Props) => {
+export const TextAreaForm: React.FC<Props> = ({label, control, name, rows, cols, ...rest}: Props) => {
   return (
     <Container>
       <Label>{label}</Label>
       <TextAreaContainer>
-        <TextArea rows={rows} cols={cols}></TextArea>
+      <Controller
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <TextArea onChange={onChange} rows={rows} cols={cols}></TextArea>
+          )}
+          name={name}
+        />
+        
       </TextAreaContainer>
     </Container>
   );

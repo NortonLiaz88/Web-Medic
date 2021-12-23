@@ -1,7 +1,10 @@
-import React, {SelectHTMLAttributes} from "react";
+import React, { SelectHTMLAttributes } from "react";
+import { Control, Controller } from "react-hook-form";
 import { Container, Label, SelectContainer, Select } from "./styles";
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
+  name: string;
+  control: Control;
   label: string;
   options: IOptions[];
 }
@@ -11,17 +14,33 @@ interface IOptions {
   label: string;
 }
 
-
-export const SelectForm: React.FC<Props> = ({label, value, options,...rest}: Props) => {
+export const SelectForm: React.FC<Props> = ({
+  label,
+  name,
+  control,
+  value,
+  options,
+  ...rest
+}: Props) => {
   return (
     <Container>
       <Label>{label}</Label>
       <SelectContainer>
-        <Select value={value} >
-          {options.map((e, key) => {
-            return <option key={key} value={e.value}>{e.label}</option>
-          })}
-        </Select>
+        <Controller
+          control={control}
+          render={({ field: { onChange, value } }) => (
+            <Select onChange={onChange} value={value}>
+              {options.map((e, key) => {
+                return (
+                  <option key={key} value={e.value}>
+                    {e.label}
+                  </option>
+                );
+              })}
+            </Select>
+          )}
+          name={name}
+        />
       </SelectContainer>
     </Container>
   );

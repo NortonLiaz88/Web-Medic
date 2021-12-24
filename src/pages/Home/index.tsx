@@ -36,14 +36,14 @@ const Home: React.FC = () => {
         <Logo src={logoUrl} alt="logo"></Logo>
       </Identity>
       <Footer>
-        <Link to="/menu-patient">
+        <Link to="/signup-patient">
           <ReusableButton
             color={theme.colors.btn_secondary}
             text="Paciente"
             iconUrl={patientIcon}
           ></ReusableButton>
         </Link>
-        <Link to="/menu-doctor">
+        <Link to="/signup-doctor">
         <ReusableButton
           color={theme.colors.primary}
           text="Médico"

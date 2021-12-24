@@ -22,7 +22,7 @@ export const TextAreaForm: React.FC<Props> = ({label, control, name, rows, cols,
       <Controller
           control={control}
           render={({ field: { onChange, value } }) => (
-            <TextArea onChange={onChange} rows={rows} cols={cols}></TextArea>
+            <TextArea value={value} onChange={onChange} rows={rows} cols={cols}></TextArea>
           )}
           name={name}
         />

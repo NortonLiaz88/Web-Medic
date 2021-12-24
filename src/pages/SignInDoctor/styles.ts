@@ -107,15 +107,5 @@ export const TextButton = styled.span`
   font-weight: regular;
   font-size: 24px;
   color: #ffffff;
-`;
 
-
-export const Section = styled.div`
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-
-  & + div {
-    margin-top: 1.5rem;
-  }
 `;

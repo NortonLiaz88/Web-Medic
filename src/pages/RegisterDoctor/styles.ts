@@ -46,7 +46,6 @@ export const Section = styled.div`
   }
 `;
 
-
 export const SectionHeader = styled.div`
   display: flex;
   flex-direction: row;
@@ -67,18 +66,17 @@ export const TitleHeader = styled.span`
 `;
 
 export const Title = styled.span`
-  font-family: ${({theme}) => theme.fonts.medium};
+  font-family: ${({ theme }) => theme.fonts.medium};
 
-font-size: 24px;
-line-height: 34px;
-
+  font-size: 24px;
+  line-height: 34px;
 `;
 
 export const AddButton = styled.button`
   padding: 1rem 2.5rem;
-  background: ${({theme}) => theme.colors.primary};
+  background: ${({ theme }) => theme.colors.primary};
   font-size: 1rem;
-  font-family: ${({theme}) => theme.fonts.regular};
+  font-family: ${({ theme }) => theme.fonts.regular};
   color: #fff;
   border: none;
   border-radius: 4px;
@@ -118,7 +116,7 @@ export const SpecialityContainer = styled.div`
 export const CloseButton = styled.button`
   background: transparent;
   border: none;
-  color:#FA514D;
+  color: #fa514d;
   font-size: 1.5rem;
   cursor: pointer;
   svg {
@@ -141,6 +139,42 @@ export const DatePickerStyled = styled(DatePicker)`
   }
 `;
 
+export const Papa = styled.div`
+  display: flex;
+  & + div {
+    margin-top: 8px;
+  }
+`;
+
+export const SelectContainer = styled.div`
+  background: ${({ theme }) => theme.colors.input_background};
+  height: 56px;
+  border: 2px solid ${({ theme }) => theme.colors.border};
+  border-radius: 10px;
+  padding: 0 16px;
+  width: 100%;
+  color: #666360;
+  display: flex;
+  align-items: center;
+ 
+
+  display: flex;
+  flex-direction:row;
+`;
+
+export const Select = styled.select`
+  background: transparent;
+  flex: 1;
+  border: 0px;
+  font-family:  ${({ theme }) => theme.fonts.regular};
+  color: ${({ theme }) => theme.colors.text};
+  font-size: 1rem;
+
+  & ::placeholder {
+    color: ${({ theme }) => theme.colors.placeholder};
+  }
+`;
+
 export const PeriodContainer = styled.div`
   display flex;
   flex: 1;
@@ -148,4 +182,3 @@ export const PeriodContainer = styled.div`
   align-items: center;
   justify-content: center;
 `;
-

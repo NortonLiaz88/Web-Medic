@@ -40,6 +40,9 @@ export const CardsContainer = styled.div`
 
 export const Card = styled.div`
   background: #fff;
+  & + div {
+    margin-top: 1rem;
+  }
 `;
 
 export const Identification = styled.div`

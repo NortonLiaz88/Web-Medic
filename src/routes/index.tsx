@@ -9,14 +9,17 @@ import PatientMenu from "../pages/PatientMenu";
 import DoctorConsult from "../pages/RegisterDoctor";
 import PatientConsult from "../pages/RegisterPatientConsult";
 import SignIn from "../pages/SignIn";
+import SignInDoctor from "../pages/SignInDoctor";
 import SignUp from "../pages/SignUp";
+import SignUpDoctor from "../pages/SignUpDoctor";
 
 const Routes: React.FC = () => (
     <Switch>
-      <Route path="/" exact component={SignIn} />
-      <Route path="/signup" component={SignUp} />
-      
-      <Route path="/home" component={Home} />
+      <Route path="/signIn-patient" component={SignIn} />
+      <Route path="/signIn-doctor" component={SignInDoctor} />
+      <Route path="/signup-patient" component={SignUp} />
+      <Route path="/signup-doctor" component={SignUpDoctor} />
+      <Route path="/" exact  component={Home} />
       <Route path="/patient-consult" component={PatientConsult} />
       <Route path="/menu-patient" component={PatientMenu}/>
       <Route path="/menu-doctor" component={DoctorMenu}/>

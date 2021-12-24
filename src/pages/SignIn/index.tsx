@@ -48,9 +48,9 @@ const SignIn: React.FC = () => {
 
   const history = useHistory();
 
-  const { user, signIn } = useAuth();
+  const { signIn } = useAuth();
   const { addToast, removeToast } = useToast();
-  console.log(user);
+
 
   const handleSendForm = useCallback(async (form) => {
     setLoading(true);
@@ -63,7 +63,8 @@ const SignIn: React.FC = () => {
         email: form.email,
         password: form.password,
       });
-      history.push('/home');
+
+      history.push('/menu-patient');
       
     } catch (err) {
       if (err instanceof Yup.ValidationError) {
@@ -89,11 +90,11 @@ const SignIn: React.FC = () => {
         <Title>Get’s started.</Title>
         <SecondaryTitle>
           Not have an account?
-          <NavigateToSignUp to="/signup">Register</NavigateToSignUp>
+          <NavigateToSignUp to="/signup-patient">Register</NavigateToSignUp>
         </SecondaryTitle>
         <HorizontalDivider></HorizontalDivider>
 
-        <InputForm name="name" control={control} label="Email"></InputForm>
+        <InputForm name="email" control={control} label="Email"></InputForm>
         <InputForm
           name="password"
           type="password"
@@ -105,7 +106,7 @@ const SignIn: React.FC = () => {
           Concordo com os termos serviço e a politica de privacidade.
         </CheckBoxLabel>
         <ButtonContainer>
-          <RegisterButton onClick={handleSendForm}>
+          <RegisterButton onClick={handleSubmit(handleSendForm)}>
             {loading ? (
               <ReactLoading
                 type="bubbles"

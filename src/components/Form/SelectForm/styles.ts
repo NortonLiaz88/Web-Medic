@@ -1,3 +1,4 @@
+import AsyncSelect from "react-select/async";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -29,6 +30,22 @@ export const SelectContainer = styled.div`
     margin-top: 8px;
   }
 `;
+
+// export const MySelect = styled(AsyncSelect).attrs((props) => ({
+// }))`
+  
+//   border: 0px !important;
+//   flex: 1;
+//   border: 0px;
+//   font-family:  ${({ theme }) => theme.fonts.regular};
+//   color: ${({ theme }) => theme.colors.text};
+//   font-size: 1rem;
+
+//   & ::placeholder {
+//     color: ${({ theme }) => theme.colors.placeholder};
+//   }
+// `;
+
 
 export const Select = styled.select`
   background: transparent;

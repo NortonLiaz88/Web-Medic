@@ -1,5 +1,7 @@
-import React, { SelectHTMLAttributes } from "react";
+import React, { SelectHTMLAttributes, useState } from "react";
 import { Control, Controller } from "react-hook-form";
+import AsyncSelect from "react-select/async";
+import { ISelectOptions } from "../../../utils/ISelectOptions";
 import { Container, Label, SelectContainer, Select } from "./styles";
 
 interface Props extends SelectHTMLAttributes<HTMLSelectElement> {
@@ -22,6 +24,7 @@ export const SelectForm: React.FC<Props> = ({
   options,
   ...rest
 }: Props) => {
+
   return (
     <Container>
       <Label>{label}</Label>
@@ -29,6 +32,12 @@ export const SelectForm: React.FC<Props> = ({
         <Controller
           control={control}
           render={({ field: { onChange, value } }) => (
+            // <MySelect
+            //   cacheOptions
+            //   loadOptions={loadOptions}
+            //   defaultOptions
+            //   onInputChange={onChange}
+            // />
             <Select onChange={onChange} value={value}>
               {options.map((e, key) => {
                 return (

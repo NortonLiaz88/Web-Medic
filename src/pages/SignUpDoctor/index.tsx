@@ -44,7 +44,7 @@ const schema = Yup.object().shape({
   password: Yup.string().min(6, "No mínimo 6 dígitos"),
 });
 
-const SignUp: React.FC = () => {
+const SignUpDoctor: React.FC = () => {
   const {
     control,
     handleSubmit,
@@ -64,11 +64,11 @@ const SignUp: React.FC = () => {
   const handleSendForm = useCallback(async (form) => {
     setLoading(true);
     try {
-      await api.post("WebMedic/Paciente-Register", form ,{
+      await api.post("WebMedic/Medico-Register", form ,{
         baseURL: "http://25.51.114.54:8000", // Base URL
       });
       // await api.post("WebMedic/Paciente", form)
-      history.push("/");
+      history.push("/signIn-doctor");
 
       addToast({
         type: "success",
@@ -103,7 +103,7 @@ const SignUp: React.FC = () => {
         <Title>Get’s started.</Title>
         <SecondaryTitle>
           Already have an account?
-          <NavigateToSignUp to="/signIn-patient">Login</NavigateToSignUp>
+          <NavigateToSignUp to="/signIn-doctor">Login</NavigateToSignUp>
         </SecondaryTitle>
         <HorizontalDivider></HorizontalDivider>
 
@@ -163,4 +163,4 @@ const SignUp: React.FC = () => {
   );
 };
 
-export default SignUp;
+export default SignUpDoctor;
